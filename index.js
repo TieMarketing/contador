@@ -34,7 +34,7 @@ app.post('/api/registrar-escolha', async (req, res) => {
 app.get('/api/contagens', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM escolhas');
-    const contagens = {};
+    const contagens = { marido: 0, esposa: 0 };
     result.rows.forEach(row => {
       contagens[row.opcao] = row.quantidade;
     });
